@@ -1,0 +1,10 @@
+#Required packages:
+#To manulally install(in cmd), RUN THIS COMMAND- pip install langchain PyPDF2 python-dotenv streamlit faiss-cpu huggingface-hub InstructorEmbedding sentence-transformers
+langchain==0.0.184
+PyPDF2==3.0.1
+python-dotenv==1.0.0
+streamlit==1.18.1
+faiss-cpu==1.7.4
+huggingface-hub==0.14.1
+InstructorEmbedding==1.0.1
+sentence-transformers==2.2.2
