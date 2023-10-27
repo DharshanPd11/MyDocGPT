@@ -11,3 +11,5 @@ InstructorEmbedding==1.0.1
 sentence-transformers==2.2.2
 pydantic ==2.3.0
 transformers==4.30
+accelerate==0.24.0
+bitsandbytes==0.41.1
