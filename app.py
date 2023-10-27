@@ -4,6 +4,7 @@ import torch
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import  HuggingFaceBgeEmbeddings
+from InstructorEmbedding import INSTRUCTOR
 from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
@@ -33,7 +34,7 @@ def get_text_chunks(text):
 
 def get_vectorstore(text_chunks):
     #embeddings = OpenAIEmbeddings()
-    embeddings = HuggingFaceBgeEmbeddings(model_name="hkunlp/instructor-large")
+    embeddings = INSTRUCTOR("hkunlp/instructor-large")
     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
     return vectorstore
 
