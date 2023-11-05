@@ -81,7 +81,7 @@ def main():
         pdf_docs = st.file_uploader(
             "Upload your PDFs here and click on 'Process'", accept_multiple_files=True)
         if st.button("Process"):
-            flag = 1
+            
             with st.spinner("Processing"):
                 # get pdf text
                 raw_text = get_pdf_text(pdf_docs)
@@ -95,10 +95,11 @@ def main():
                 # create conversation chain
                 st.session_state.conversation = get_conversation_chain(
                     vectorstore)
+                flag = 1
 
     user_question = st.chat_input("Ex: What is the document about?")
     if user_question:
-        if flag==1:
+        if flag == 1:
             handle_userinput(user_question)
         else:
             st.warning("Please upload a PDF file!")
