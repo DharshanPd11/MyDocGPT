@@ -1,4 +1,4 @@
-import streamlit as st
+orimport streamlit as st
 from dotenv import load_dotenv
 import torch
 from PyPDF2 import PdfReader
@@ -103,7 +103,7 @@ def main():
         if flag == 0:
             handle_userinput(user_question)
         else:
-            st.warning("Please upload a PDF file!")
+            st.error("Please upload a PDF file!")
 if __name__ == '__main__':
     main()
 
