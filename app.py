@@ -1,4 +1,4 @@
-orimport streamlit as st
+import streamlit as st
 from dotenv import load_dotenv
 import torch
 from PyPDF2 import PdfReader
