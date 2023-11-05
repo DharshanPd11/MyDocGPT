@@ -65,6 +65,7 @@ def handle_userinput(user_question):
 
 def main():
     load_dotenv()
+    flag = 0
     st.set_page_config(page_title="Chat with multiple PDFs",
                        page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
@@ -75,7 +76,7 @@ def main():
         st.session_state.chat_history = None
     st.header("Chat with your PDFs :books:", divider='rainbow')
     st.subheader("_Kindly upload your PDFs befor you ask questions_ :smile:")
-    flag = 0
+    
     with st.sidebar:
         st.subheader("Your PDFs")
         pdf_docs = st.file_uploader(
