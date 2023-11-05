@@ -81,9 +81,9 @@ def main():
         pdf_docs = st.file_uploader(
             "Upload your PDFs here and click on 'Process'", accept_multiple_files=True)
         if st.button("Process"):
+            flag = 1
             with st.spinner("Processing"):
                 # get pdf text
-                flag =1
                 raw_text = get_pdf_text(pdf_docs)
 
                 # get the text chunks
