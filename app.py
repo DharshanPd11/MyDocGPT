@@ -99,7 +99,7 @@ def main():
                 flag = 0
     user_question = st.chat_input("Ex: What is the document about?")
     if user_question:
-        if (flag == 1):
+        if (flag == 0):
             st.error("No File")
         else:
             handle_userinput(user_question)
