@@ -100,7 +100,6 @@ def main():
     user_question = st.chat_input("Ex: What is the document about?")
     if user_question:
         handle_userinput(user_question)
-        print(flag)
 if __name__ == '__main__':
     main()
 
