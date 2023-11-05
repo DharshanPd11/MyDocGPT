@@ -53,7 +53,6 @@ def get_conversation_chain(vectorstore):
 def handle_userinput(user_question):
     response = st.session_state.conversation({'question': user_question})
     st.session_state.chat_history = response['chat_history']
-
     for i, message in enumerate(st.session_state.chat_history):
         if i % 2 == 0:
             st.write(user_template.replace(
@@ -65,7 +64,6 @@ def handle_userinput(user_question):
 
 def main():
     load_dotenv()
-    st.flag = 1
     st.set_page_config(page_title="Chat with multiple PDFs",
                        page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
@@ -86,7 +84,6 @@ def main():
             with st.spinner("Processing"):
                 # get pdf text
                 raw_text = get_pdf_text(pdf_docs)
-
                 # get the text chunks
                 text_chunks = get_text_chunks(raw_text)
 
@@ -96,13 +93,12 @@ def main():
                 # create conversation chain
                 st.session_state.conversation = get_conversation_chain(
                     vectorstore)
-                st.flag = 0
+                
     user_question = st.chat_input("Ex: What is the document about?")
     if user_question:
-        if (st.flag == 0):
-            st.error("No File")
-        else:
             handle_userinput(user_question)
+
+
 if __name__ == '__main__':
     main()
 
