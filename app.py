@@ -73,7 +73,8 @@ def main():
         st.session_state.conversation = None
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None
-
+    st.header("Chat with your PDFs :books:", divider='rainbow')
+    st.subheader("_Kindly upload your PDFs befor you ask questions_ :smile:")
     with st.sidebar:
         st.subheader("Your PDFs")
         pdf_docs = st.file_uploader(
@@ -92,14 +93,13 @@ def main():
                 # create conversation chain
                 st.session_state.conversation = get_conversation_chain(
                     vectorstore)
-        st.header("Chat with your PDFs :books:", divider='rainbow')
-        st.subheader("_Kindly upload your PDFs befor you ask questions_ :smile:")
-        user_question = st.chat_input("Ex: What is the document about?")
-        if user_question:
-            if raw_text:
-                handle_userinput(user_question)
-            else:
-                st.warning("Please upload a PDF file!")
+
+                user_question = st.chat_input("Ex: What is the document about?")
+                if user_question:
+                    if raw_text:
+                        handle_userinput(user_question)
+                    else:
+                        st.warning("Please upload a PDF file!")
 if __name__ == '__main__':
     main()
 
