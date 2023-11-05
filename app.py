@@ -75,7 +75,7 @@ def main():
         st.session_state.chat_history = None
 
     st.header("Chat with your PDFs :books:", divider='rainbow')
-    st.subheader("Kindly upload your PDFs befor you ask questions :smile:")
+    st.subheader("_Kindly upload your PDFs befor you ask questions_ :smile:")
     user_question = st.chat_input("Ex: What is the document about?")
     if user_question:
         handle_userinput(user_question)
