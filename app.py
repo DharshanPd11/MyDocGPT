@@ -94,12 +94,12 @@ def main():
                 st.session_state.conversation = get_conversation_chain(
                     vectorstore)
 
-        user_question = st.chat_input("Ex: What is the document about?")
-        if user_question:
-            if raw_text:
-                handle_userinput(user_question)
-            else:
-                st.warning("Please upload a PDF file!")
+    user_question = st.chat_input("Ex: What is the document about?")
+    if user_question:
+        if raw_text:
+            handle_userinput(user_question)
+        else:
+            st.warning("Please upload a PDF file!")
 if __name__ == '__main__':
     main()
 
