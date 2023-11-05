@@ -65,7 +65,7 @@ def handle_userinput(user_question):
 
 def main():
     load_dotenv()
-    flag = 0
+    flag = 1
     st.set_page_config(page_title="Chat with multiple PDFs",
                        page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
@@ -96,11 +96,11 @@ def main():
                 # create conversation chain
                 st.session_state.conversation = get_conversation_chain(
                     vectorstore)
-                flag = 1
+                flag = 0
 
     user_question = st.chat_input("Ex: What is the document about?")
     if user_question:
-        if flag == 1:
+        if flag == 0:
             handle_userinput(user_question)
         else:
             st.warning("Please upload a PDF file!")
