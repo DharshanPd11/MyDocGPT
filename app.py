@@ -96,7 +96,7 @@ def main():
     st.subheader("_Kindly upload your PDFs befor you ask questions_ :smile:")
     user_question = st.chat_input("Ex: What is the document about?")
     if user_question:
-        if raw_text:
+        if raw_text is not None:
             handle_userinput(user_question)
         else:
             st.warning("Please upload a PDF file!")
