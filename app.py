@@ -100,10 +100,8 @@ def main():
                 flag = 0
 
     if user_question:
-        if flag == 0:
-            handle_userinput(user_question)
-        else:
-            st.error("Please upload a PDF file!")
+        handle_userinput(user_question)
+        print(flag)
 if __name__ == '__main__':
     main()
 
