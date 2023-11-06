@@ -81,7 +81,7 @@ def main():
         st.subheader("Upload Files :file_folder:")
         pdf_docs = st.file_uploader(
             "Upload your PDFs here and click on 'Process'", accept_multiple_files=True)
-        if len(pdf_docs)<=5:
+        if len(pdf_docs)!=0:
             # Update flag to 1 when files are uploaded
             flag = 1
         if len(pdf_docs)>5:
