@@ -16,23 +16,18 @@ To install the App, please follow these steps:
 Clone the repository to your local machine.
 Install the required dependencies by running the following command:
 
-'''
-pip install -r requirements.txt
-'''
+`pip install -r requirements.txt`
+
 Obtain an API key from HUGGINGFACE_HUB and add it to the .env file in the project directory.
 
-'''
-HUGGINGFACEHUB_API_TOKEN = "YOUR SECRET KEY"
-'''
+`HUGGINGFACEHUB_API_TOKEN = "YOUR SECRET KEY"`
 
 # Usage
 To use the MultiPDF Chat App, follow these steps:
-Ensure that you have installed the required dependencies and added the Huggingface API key to the .env file.
-Run the main.py file using the Streamlit CLI. Execute the following command:
+Ensure that you have installed the required dependencies and added the Huggingface API key to the `.env` file.
+Run the `main.py` file using the Streamlit CLI. Execute the following command:
 
-'''
-streamlit run app.py
-'''
+`streamlit run app.py`
 
 The application will launch in your default web browser, displaying the user interface.
 Load multiple PDF documents into the app by following the provided instructions.
