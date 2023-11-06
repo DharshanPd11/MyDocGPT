@@ -1,6 +1,6 @@
-# PDF_Chatbot - Chat with your own Data :)
+# MyDocGPT - Chat with your own Data :)
 Chat with your own data
-The PDF_Chatbot App is a Python application that allows you to chat with multiple PDF documents. You can ask questions about the PDFs using natural language, and the application will provide relevant responses based on the content of the documents. This app utilizes a Open-source large language model from Huggingface hub to generate answers to your queries. Please note that the app will only respond to questions related to the loaded PDFs. Note** This model is capable of running in CPU's and does not require any additional GPU's.
+The MyDocGPT App is a Python application that allows you to chat with multiple PDF documents. You can ask questions about the PDFs using natural language, and the application will provide relevant responses based on the content of the documents. This app utilizes a Open-source large language model from Huggingface hub to generate answers to your queries. Please note that the app will only respond to questions related to the loaded PDFs. Note** This model is capable of running in CPU's and does not require any additional GPU's.
 
 # How it works
 1) The application follows these steps to provide responses to your questions:
