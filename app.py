@@ -81,12 +81,14 @@ def main():
         st.subheader("Upload Files :file_folder:")
         pdf_docs = st.file_uploader(
             "Upload your PDFs here and click on 'Process'", accept_multiple_files=True)
-        if pdf_docs:
+        if len(pdf_docs)<=5:
             # Update flag to 1 when files are uploaded
             flag = 1
+        else:
+            flag = 2
         
         if st.button("Process"):
-            if flag==1:
+            if flag == 1:
                 with st.spinner("Processing"):
                     # get pdf text
                     raw_text = get_pdf_text(pdf_docs)
@@ -100,7 +102,11 @@ def main():
                     st.session_state.conversation = get_conversation_chain(
                         vectorstore)
                     st.success("File Processed:white_check_mark:")
-            else:
+            if flag == 2:
+                st.warning("File Upload limit exceeded:heavy_exclamation_mark:")
+                st.warning("You can only upload upto 5 files.")
+           
+            if flag ==0:
                 st.warning("No files uploaded:heavy_exclamation_mark:")
 
     user_question = st.chat_input("Ex: What is the document about?")
