@@ -64,43 +64,57 @@ def handle_userinput(user_question):
 
 def main():
     load_dotenv()
-    st.set_page_config(page_title="Chat with multiple PDFs",
-                       page_icon=":books:")
+    st.set_page_config(page_title="MyDocGPT - Chat with your PDFs", page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None
-    st.header("Chat with your PDFs :books:", divider='rainbow')
-    st.subheader("_Kindly upload your PDFs befor you ask questions_ :smile:")
+
+    # Initialize flag to 0
+    flag = 0
+
+    st.header("MyDocGPT :books:", divider='rainbow')
 
     with st.sidebar:
-        st.subheader("Your PDFs")
+        st.subheader("Upload Files :file_folder:")
         pdf_docs = st.file_uploader(
             "Upload your PDFs here and click on 'Process'", accept_multiple_files=True)
+        if pdf_docs:
+            # Update flag to 1 when files are uploaded
+            flag = 1
+        
         if st.button("Process"):
-            
-            with st.spinner("Processing"):
-                # get pdf text
-                raw_text = get_pdf_text(pdf_docs)
-                # get the text chunks
-                text_chunks = get_text_chunks(raw_text)
+            if flag==1:
+                with st.spinner("Processing"):
+                    # get pdf text
+                    raw_text = get_pdf_text(pdf_docs)
+                    # get the text chunks
+                    text_chunks = get_text_chunks(raw_text)
 
-                # create vector store
-                vectorstore = get_vectorstore(text_chunks)
+                    # create vector store
+                    vectorstore = get_vectorstore(text_chunks)
 
-                # create conversation chain
-                st.session_state.conversation = get_conversation_chain(
-                    vectorstore)
-                
+                    # create conversation chain
+                    st.session_state.conversation = get_conversation_chain(
+                        vectorstore)
+                    st.success("File Processed:white_check_mark:")
+            else:
+                st.warning("No files uploaded:heavy_exclamation_mark:")
+
     user_question = st.chat_input("Ex: What is the document about?")
     if user_question:
+        if flag == 0:
+            st.warning("Please upload a file before asking questions:heavy_exclamation_mark:")
+        else:
             handle_userinput(user_question)
+
+
 
 
 if __name__ == '__main__':
     main()
 
-#.venv\Scripts\activate.bat
+
 #streamlit run app.py
