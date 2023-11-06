@@ -84,7 +84,7 @@ def main():
         if len(pdf_docs)<=5:
             # Update flag to 1 when files are uploaded
             flag = 1
-        else:
+        if len(pdf_docs)>5:
             flag = 2
         
         if st.button("Process"):
