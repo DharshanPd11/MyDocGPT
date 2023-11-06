@@ -17,7 +17,7 @@ Install the required dependencies by running the following command:
 
 `pip install -r requirements.txt`
 
-Obtain an API key from HUGGINGFACE_HUB and add it to the .env file in the project directory.
+Obtain an API key from HUGGINGFACE_HUB and add it to the `.env`  file in the project directory.
 
 `HUGGINGFACEHUB_API_TOKEN = "YOUR SECRET KEY"`
 
